@@ -22,7 +22,15 @@ function addR() {
 
 // Add a column
 function addC() {
-    
+    if(tableTop.childElementCount > 0){
+        let table = tableTop.firstElementChild
+        for(let i = 0; i<table.childElementCount; i++){
+            table.children[i].insertAdjacentHTML("beforeend", cellString);
+        }
+    }else{
+        addR()
+        addC()
+    }
 }
 
 // Remove a row
