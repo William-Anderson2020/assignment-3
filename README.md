@@ -5,4 +5,4 @@ This repository is for Assignment 3 - Grid Maker.
 William Anderson - William-Anderson2020
 
 ### Live Link
-[Website link](https://johnnylaicode.github.io/grid-maker-starter-code/)
+[Website link](https://william-anderson2020.github.io/assignment-3/)
