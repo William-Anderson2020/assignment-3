@@ -9,7 +9,7 @@ let cellString = `<td onclick="alert('Clicked a table cell');"></td>`
 function addR() {
     let cells = "";
     if(tableTop.childElementCount > 0){
-        let table = tableTop.firstElementChild
+        let table = tableTop.firstElementChild;
         if(table.childElementCount > 0){
             for(i=0; i<table.firstChild.childElementCount; i++){
                 cells += cellString;
@@ -27,27 +27,27 @@ function addR() {
 // Add a column
 function addC() {
     if(tableTop.childElementCount > 0){
-        let table = tableTop.firstElementChild
+        let table = tableTop.firstElementChild;
         if(table.childElementCount > 0){
             for(let i = 0; i<table.childElementCount; i++){
                 table.children[i].insertAdjacentHTML("beforeend", cellString);
             }    
         }else{
-            addR()
-            addC()
+            addR();
+            addC();
         }
     }else{
-        addR()
-        addC()
+        addR();
+        addC();
     }
 }
 
 // Remove a row
 function removeR() {
     if(tableTop.childElementCount > 0){
-        table = tableTop.firstElementChild
+        table = tableTop.firstElementChild;
         if(table.childElementCount > 0){
-            table.removeChild(table.lastChild)    
+            table.removeChild(table.lastChild); 
         }
     }
 }
@@ -55,9 +55,9 @@ function removeR() {
 // Remove a column
 function removeC() {
     if(tableTop.childElementCount > 0){
-        let table = tableTop.firstElementChild
+        let table = tableTop.firstElementChild;
         for(let i = 0; i<table.childElementCount; i++){
-            table.children[i].removeChild(table.children[i].lastChild)
+            table.children[i].removeChild(table.children[i].lastChild);
         }
     }
 }
