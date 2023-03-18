@@ -59,6 +59,12 @@ function removeC() {
         for(let i = 0; i<table.childElementCount; i++){
             table.children[i].removeChild(table.children[i].lastChild);
         }
+        if(table.children[0].childElementCount == 0){
+            let rows = table.childElementCount
+            for(let i = 0; i<rows; i++){
+                removeR();
+            }
+        }
     }
 }
 
