@@ -70,7 +70,24 @@ function selectColor(){
 
 // Fill all uncolored cells
 function fillU(){
-    alert("Clicked Fill All Uncolored"); // Replace this line with your code.
+    if(tableTop.childElementCount > 0){
+        let table = tableTop.firstElementChild;
+        if(table.childElementCount > 0){
+            for(let i = 0; i < table.childElementCount; i++){
+                for(let j = 0; j < table.children[i].childElementCount; j++){
+                    cell = table.children[i].children[j];
+                    if(cell.getAttribute("style")){
+                        if(cell.style.backgroundColor == null){
+                            cell.style.backgroundColor = colorSelected;    
+                        }
+                    }else{
+                        cell.style.backgroundColor = colorSelected;
+                    }
+                }
+            }
+        }
+    }
+    
 }
 
 // Fill all cells
