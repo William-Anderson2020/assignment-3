@@ -92,7 +92,18 @@ function fillU(){
 
 // Fill all cells
 function fillAll(){
-    alert("Clicked Fill All"); // Replace this line with your code.
+    if(tableTop.childElementCount > 0){
+        let table = tableTop.firstElementChild;
+        if(table.childElementCount > 0){
+            for(let i = 0; i < table.childElementCount; i++){
+                for(let j = 0; j < table.children[i].childElementCount; j++){
+                    cell = table.children[i].children[j];
+                    cell.style.backgroundColor = colorSelected;
+                    
+                }
+            }
+        }
+    }
 }
 
 // Clear all cells
