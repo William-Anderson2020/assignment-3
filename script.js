@@ -10,10 +10,14 @@ function addR() {
     let cells = "";
     if(tableTop.childElementCount > 0){
         let table = tableTop.firstElementChild
-        for(i=0; i<table.firstChild.childElementCount; i++){
-            cells += cellString;
+        if(table.childElementCount > 0){
+            for(i=0; i<table.firstChild.childElementCount; i++){
+                cells += cellString;
+            }
+            table.insertAdjacentHTML("beforeend", `<tr>${cells}</tr>`);      
+        }else{
+            table.insertAdjacentHTML("beforeend", `<tr>${cells}</tr>`);
         }
-        table.insertAdjacentHTML("beforeend", `<tr>${cells}</tr>`);    
     }else{
         tableTop.insertAdjacentHTML("beforeend", `<tr>${cells}</tr>`);
     }
