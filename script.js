@@ -9,11 +9,15 @@ let cellString = `<td onclick="alert('Clicked a table cell');"></td>`
 function addR() {
     let cells = "";
     if(tableTop.childElementCount > 0){
-        let table = tableTop.firstElementChild
-        for(i=0; i<table.firstChild.childElementCount; i++){
-            cells += cellString;
+        let table = tableTop.firstElementChild;
+        if(table.childElementCount > 0){
+            for(i=0; i<table.firstChild.childElementCount; i++){
+                cells += cellString;
+            }
+            table.insertAdjacentHTML("beforeend", `<tr>${cells}</tr>`);      
+        }else{
+            table.insertAdjacentHTML("beforeend", `<tr>${cells}</tr>`);
         }
-        table.insertAdjacentHTML("beforeend", `<tr>${cells}</tr>`);    
     }else{
         tableTop.insertAdjacentHTML("beforeend", `<tr>${cells}</tr>`);
     }
@@ -23,29 +27,39 @@ function addR() {
 // Add a column
 function addC() {
     if(tableTop.childElementCount > 0){
-        let table = tableTop.firstElementChild
-        for(let i = 0; i<table.childElementCount; i++){
-            table.children[i].insertAdjacentHTML("beforeend", cellString);
+        let table = tableTop.firstElementChild;
+        if(table.childElementCount > 0){
+            for(let i = 0; i<table.childElementCount; i++){
+                table.children[i].insertAdjacentHTML("beforeend", cellString);
+            }    
+        }else{
+            addR();
+            addC();
         }
     }else{
-        addR()
-        addC()
+        addR();
+        addC();
     }
 }
 
 // Remove a row
 function removeR() {
     if(tableTop.childElementCount > 0){
-        table = tableTop.firstElementChild
+        table = tableTop.firstElementChild;
         if(table.childElementCount > 0){
-            table.removeChild(table.lastChild)    
+            table.removeChild(table.lastChild); 
         }
     }
 }
 
 // Remove a column
 function removeC() {
-    alert("Clicked Remove Col"); // Replace this line with your code.
+    if(tableTop.childElementCount > 0){
+        let table = tableTop.firstElementChild;
+        for(let i = 0; i<table.childElementCount; i++){
+            table.children[i].removeChild(table.children[i].lastChild);
+        }
+    }
 }
 
 // Set global variable for selected color
