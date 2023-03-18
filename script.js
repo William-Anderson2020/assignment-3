@@ -16,10 +16,10 @@ function addR() {
             }
             table.insertAdjacentHTML("beforeend", `<tr>${cells}</tr>`);      
         }else{
-            table.insertAdjacentHTML("beforeend", `<tr>${cells}</tr>`);
+            table.insertAdjacentHTML("beforeend", `<tr>${cellString}</tr>`);
         }
     }else{
-        tableTop.insertAdjacentHTML("beforeend", `<tr>${cells}</tr>`);
+        tableTop.insertAdjacentHTML("beforeend", `<tr>${cellString}</tr>`);
     }
     
 }
