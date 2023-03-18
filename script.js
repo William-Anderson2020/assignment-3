@@ -35,7 +35,12 @@ function addC() {
 
 // Remove a row
 function removeR() {
-    alert("Clicked Remove Row"); // Replace this line with your code.
+    if(tableTop.childElementCount > 0){
+        table = tableTop.firstElementChild
+        if(table.childElementCount > 0){
+            table.removeChild(table.lastChild)    
+        }
+    }
 }
 
 // Remove a column
