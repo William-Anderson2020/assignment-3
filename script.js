@@ -28,8 +28,13 @@ function addR() {
 function addC() {
     if(tableTop.childElementCount > 0){
         let table = tableTop.firstElementChild
-        for(let i = 0; i<table.childElementCount; i++){
-            table.children[i].insertAdjacentHTML("beforeend", cellString);
+        if(table.childElementCount > 0){
+            for(let i = 0; i<table.childElementCount; i++){
+                table.children[i].insertAdjacentHTML("beforeend", cellString);
+            }    
+        }else{
+            addR()
+            addC()
         }
     }else{
         addR()
