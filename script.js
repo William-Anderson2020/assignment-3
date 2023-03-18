@@ -3,7 +3,7 @@ let numRows = 0;
 let numCols = 0;
 let colorSelected;
 let tableTop = document.getElementById("grid");
-let cellString = `<td onclick="alert('Clicked a table cell');"></td>`
+let cellString = `<td onclick="fillC(this);"></td>`
 
 // Add a row
 function addR() {
@@ -72,6 +72,10 @@ function removeC() {
 function selectColor(){
     colorSelected = document.getElementById("selectedColorId").value;
     console.log(colorSelected);
+}
+
+function fillC(e){
+    e.style.backgroundColor = colorSelected
 }
 
 // Fill all uncolored cells
