@@ -1,16 +1,28 @@
 // Declare global variables
 let numRows = 0;
 let numCols = 0;
-let colorSelected; 
+let colorSelected;
+let tableTop = document.getElementById("grid");
+let cellString = `<td onclick="alert('Clicked a table cell');"></td>`
 
 // Add a row
 function addR() {
-    alert("Clicked Add Row"); // Replace this line with your code.
+    let cells = "";
+    if(tableTop.childElementCount > 0){
+        let table = tableTop.firstElementChild
+        for(i=0; i<table.firstChild.childElementCount; i++){
+            cells += cellString;
+        }
+        table.insertAdjacentHTML("beforeend", `<tr>${cells}</tr>`);    
+    }else{
+        tableTop.insertAdjacentHTML("beforeend", `<tr>${cells}</tr>`);
+    }
+    
 }
 
 // Add a column
 function addC() {
-    alert("Clicked Add Col"); // Replace this line with your code.
+    
 }
 
 // Remove a row
